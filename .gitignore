@@ -1,0 +1,17 @@
+# Android/IntelliJ IDEA files
+*.iml
+.idea/
+.gradle
+local.properties
+.DS_Store
+
+# Gradle files
+/build/
+.cxx/
+.externalNativeBuild/
+
+# Captures
+/captures/
+
+# System-specific
+Thumbs.db
