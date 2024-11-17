@@ -11,7 +11,10 @@ class TicTacToeViewModel {
     val board: Array<Array<Player>>
         get() = gameState.value.board
     val currentPlayer: Player
-        get() = if (gameState.value.moveCount % 2 == 0) Player.X else Player.O
+        get() =
+            if (gameState.value.moveCount == 9) Player.DRAW
+            else if (gameState.value.moveCount % 2 == 0) Player.X
+            else Player.O
 
 
 

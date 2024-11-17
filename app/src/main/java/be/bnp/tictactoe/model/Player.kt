@@ -1,5 +1,5 @@
 package be.bnp.tictactoe.model
 
 enum class Player {
-    X, O, EMPTY
+    X, O, EMPTY, DRAW
 }
