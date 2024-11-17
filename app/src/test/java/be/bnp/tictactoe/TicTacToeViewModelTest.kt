@@ -5,7 +5,6 @@ import be.bnp.tictactoe.viewmodel.TicTacToeViewModel
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
-import org.junit.runners.JUnit4
 
 class TicTacToeViewModelTest{
 
@@ -30,4 +29,14 @@ class TicTacToeViewModelTest{
         assertEquals(Player.X, viewModel.currentPlayer)
         assertEquals(viewModel.board[0][1], Player.O)
     }
+
+    @Test
+    fun when_boardButtonIsClicked_then_boardButtonShouldBePlayable() {
+        viewModel.onBoardClick(0,0)
+        viewModel.onBoardClick(0,0)
+        assertEquals(Player.X, viewModel.board[0][0])
+        assertEquals(Player.O, viewModel.currentPlayer)
+    }
+
+
 }
