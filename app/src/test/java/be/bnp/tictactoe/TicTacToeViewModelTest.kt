@@ -38,5 +38,16 @@ class TicTacToeViewModelTest{
         assertEquals(Player.O, viewModel.currentPlayer)
     }
 
+    @Test
+    fun when_resetGameButtonIsClicked_then_gameShouldBeReset() {
+        viewModel.onBoardClick(0,0)
+        viewModel.onBoardClick(0,1)
+        viewModel.onResetClick()
+        assertEquals(viewModel.board[0][0], Player.EMPTY)
+        assertEquals(viewModel.board[0][1], Player.EMPTY)
+        assertEquals(Player.X, viewModel.currentPlayer)
+    }
+
+
 
 }
