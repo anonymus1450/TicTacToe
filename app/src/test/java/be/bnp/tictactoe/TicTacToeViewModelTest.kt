@@ -69,7 +69,7 @@ class TicTacToeViewModelTest{
     }
 
     @Test
-    fun when_winnerIsDetected_then_winnerShouldBeDisplayed() {
+    fun when_winnerByRowIsDetected_then_winnerShouldBeDisplayed() {
         viewModel.onBoardClick(0, 0)  // X
         viewModel.onBoardClick(1, 0)  // O
         viewModel.onBoardClick(0, 1)  // X
@@ -77,6 +77,41 @@ class TicTacToeViewModelTest{
         viewModel.onBoardClick(0, 2)  // X wins
 
         assertEquals(Player.X, viewModel.winner)
+    }
+
+    @Test
+    fun when_winnerByColumnIsDetected_then_winnerShouldBeDisplayed() {
+        viewModel.onBoardClick(0, 1)  // X
+        viewModel.onBoardClick(0, 0)  // O
+        viewModel.onBoardClick(1, 1)  // X
+        viewModel.onBoardClick(0, 2)  // O
+        viewModel.onBoardClick(2, 1)  // X wins
+
+        assertEquals(Player.X, viewModel.winner)
+    }
+
+    @Test
+    fun when_winnerByDiagonalIsDetected_then_winnerShouldBeDisplayed() {
+        viewModel.onBoardClick(0, 1)  // X
+        viewModel.onBoardClick(0, 0)  // O
+        viewModel.onBoardClick(0, 2)  // X
+        viewModel.onBoardClick(1, 1)  // O
+        viewModel.onBoardClick(1, 2)  // X
+        viewModel.onBoardClick(2, 2)  // O wins
+
+        assertEquals(Player.O, viewModel.winner)
+    }
+
+    @Test
+    fun when_winnerBySecondDiagonalIsDetected_then_winnerShouldBeDisplayed() {
+        viewModel.onBoardClick(0, 0)  // X
+        viewModel.onBoardClick(1, 1)  // O
+        viewModel.onBoardClick(0, 1)  // X
+        viewModel.onBoardClick(0, 2)  // O
+        viewModel.onBoardClick(1, 2)  // X
+        viewModel.onBoardClick(2, 0)  // 0 wins
+
+        assertEquals(Player.O, viewModel.winner)
     }
 
 }
