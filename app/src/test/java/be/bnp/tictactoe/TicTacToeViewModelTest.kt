@@ -48,6 +48,19 @@ class TicTacToeViewModelTest{
         assertEquals(Player.X, viewModel.currentPlayer)
     }
 
+    @Test
+    fun when_boardIsFilledAndNoWinnerDetected_then_shouldBeDraw() {
+        viewModel.onBoardClick(0,0) // X
+        viewModel.onBoardClick(0,1) // O
+        viewModel.onBoardClick(1,0) // X
+        viewModel.onBoardClick(2,0) // O
+        viewModel.onBoardClick(1,1) // X
+        viewModel.onBoardClick(2,2) // O
+        viewModel.onBoardClick(0,2) // X
+        viewModel.onBoardClick(2,1) // O
+        viewModel.onBoardClick(1,2) // X
 
+        assertEquals(Player.DRAW, viewModel.currentPlayer)
+    }
 
 }
