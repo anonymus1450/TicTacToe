@@ -1,11 +1,13 @@
 package be.bnp.tictactoe
 
 import be.bnp.tictactoe.model.Player
+import be.bnp.tictactoe.viewmodel.TicTacToeViewModel
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
+import org.junit.runners.JUnit4
 
-class TicTacToeViewModelTest() {
+class TicTacToeViewModelTest{
 
     private lateinit var viewModel: TicTacToeViewModel
 
