@@ -25,4 +25,8 @@ class TicTacToeViewModel {
             )
         }
     }
+
+    fun onResetClick() {
+        gameState.value = TicTacToeState()
+    }
 }
