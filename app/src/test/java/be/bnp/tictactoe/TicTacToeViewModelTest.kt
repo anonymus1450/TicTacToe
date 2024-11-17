@@ -23,9 +23,12 @@ class TicTacToeViewModelTest{
     @Test
     fun when_XPlays_then_XIsMarked_And_OPlays(){
         viewModel.onBoardClick(0,0)
+
         assertEquals(Player.O, viewModel.currentPlayer)
         assertEquals(viewModel.board[0][0], Player.X)
+
         viewModel.onBoardClick(0,1)
+
         assertEquals(Player.X, viewModel.currentPlayer)
         assertEquals(viewModel.board[0][1], Player.O)
     }
@@ -34,6 +37,7 @@ class TicTacToeViewModelTest{
     fun when_boardButtonIsClicked_then_boardButtonShouldBePlayable() {
         viewModel.onBoardClick(0,0)
         viewModel.onBoardClick(0,0)
+
         assertEquals(Player.X, viewModel.board[0][0])
         assertEquals(Player.O, viewModel.currentPlayer)
     }
@@ -43,6 +47,7 @@ class TicTacToeViewModelTest{
         viewModel.onBoardClick(0,0)
         viewModel.onBoardClick(0,1)
         viewModel.onResetClick()
+
         assertEquals(viewModel.board[0][0], Player.EMPTY)
         assertEquals(viewModel.board[0][1], Player.EMPTY)
         assertEquals(Player.X, viewModel.currentPlayer)
