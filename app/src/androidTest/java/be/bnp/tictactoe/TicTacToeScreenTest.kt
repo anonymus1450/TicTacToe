@@ -73,7 +73,18 @@ class TicTacToeScreenTest {
         composeTestRule.onNodeWithText("Player O's turn").assertExists()
     }
 
+    @Test
+    fun when_resetGameButtonIsClicked_then_gameShouldBeReset() {
+        // click on board[0,0], then board[0,1], then restart game
 
+        composeTestRule.onNodeWithTag("0, 0").performClick()
+        composeTestRule.onNodeWithTag("0, 1").performClick()
+        composeTestRule.onNodeWithText("Reset Game").performClick()
+
+        composeTestRule.onNodeWithTag("0, 0").assertTextEquals("-")
+        composeTestRule.onNodeWithTag("0, 2").assertTextEquals("-")
+
+    }
 
 
 }
