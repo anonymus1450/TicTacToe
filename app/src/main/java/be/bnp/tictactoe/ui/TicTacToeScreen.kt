@@ -33,7 +33,12 @@ fun TicTacToeScreen(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text(text = "Player ${viewModel.currentPlayer}'s turn",
+        val header: String = when {
+            viewModel.currentPlayer == Player.DRAW -> "It's a draw !"
+            viewModel.winner != Player.EMPTY -> "Player ${viewModel.winner} wins !"
+            else -> "It's ${viewModel.currentPlayer}'s turn"
+        }
+        Text(text = header,
             style = MaterialTheme.typography.headlineMedium,
             modifier = Modifier.padding(16.dp),
             textAlign = TextAlign.Center

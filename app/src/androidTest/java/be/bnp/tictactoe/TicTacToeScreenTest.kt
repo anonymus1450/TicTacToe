@@ -98,8 +98,8 @@ class TicTacToeScreenTest {
         composeTestRule.onNodeWithTag("2, 2").performClick()
         composeTestRule.onNodeWithTag("2, 0").performClick()
 
-        composeTestRule.onNodeWithText("It's a draw").assertExists()
-
+        composeTestRule.onNodeWithText("It's a draw !").assertExists()
     }
+
 
 }
