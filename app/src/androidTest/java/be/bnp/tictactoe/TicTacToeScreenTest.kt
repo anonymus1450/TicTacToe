@@ -101,5 +101,16 @@ class TicTacToeScreenTest {
         composeTestRule.onNodeWithText("It's a draw !").assertExists()
     }
 
+    @Test
+    fun when_winnerIsDetected_then_winnerShouldBeDisplayed() {
+        composeTestRule.onNodeWithTag("0, 0").performClick()
+        composeTestRule.onNodeWithTag("0, 1").performClick()
+        composeTestRule.onNodeWithTag("1, 0").performClick()
+        composeTestRule.onNodeWithTag("1, 1").performClick()
+        composeTestRule.onNodeWithTag("2, 0").performClick()
+
+        composeTestRule.onNodeWithText("Player X wins !").assertExists()
+    }
+
 
 }
