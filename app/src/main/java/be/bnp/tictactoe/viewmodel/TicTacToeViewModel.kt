@@ -16,9 +16,13 @@ class TicTacToeViewModel: ViewModel() {
         get() = state.value.board
 
     val currentPlayer: Player
-        get() = if (state.value.moveCount == 9) Player.DRAW
-                else if (state.value.moveCount % 2 == 0) Player.X
-                else Player.O
+        get() =
+            if(winner != Player.EMPTY) winner
+            else if (state.value.moveCount == 9) Player.DRAW
+            else if (state.value.moveCount % 2 == 0) Player.X
+            else Player.O
+
+
 
     val winner: Player
         get() = state.value.winner
