@@ -82,7 +82,7 @@ class TicTacToeScreenTest {
         composeTestRule.onNodeWithText("Reset Game").performClick()
 
         composeTestRule.onNodeWithTag("0, 0").assertTextEquals("-")
-        composeTestRule.onNodeWithTag("0, 2").assertTextEquals("-")
+        composeTestRule.onNodeWithTag("0, 1").assertTextEquals("-")
 
     }
 
