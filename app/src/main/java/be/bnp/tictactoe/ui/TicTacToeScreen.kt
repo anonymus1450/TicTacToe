@@ -36,7 +36,7 @@ fun TicTacToeScreen(
         val header: String = when {
             viewModel.currentPlayer == Player.DRAW -> "It's a draw!"
             viewModel.winner != Player.EMPTY -> "Player ${viewModel.winner} wins!"
-            else -> "It's ${viewModel.currentPlayer}'s turn"
+            else -> "Player ${viewModel.currentPlayer}'s turn"
         }
 
         Text(text = header,

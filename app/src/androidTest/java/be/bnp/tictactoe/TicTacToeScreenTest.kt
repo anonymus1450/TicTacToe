@@ -33,6 +33,7 @@ class TicTacToeScreenTest {
 
     @Test
     fun when_gameStarts_then_XPlaysFirst() {
+        
 
         // Ensure it's X's turn
         composeTestRule
@@ -66,7 +67,9 @@ class TicTacToeScreenTest {
     fun when_boardButtonIsClicked_then_boardButtonShouldBePlayable() {
         // X clicks on board[0,0] then O clicks on board[0,0]
         composeTestRule.onNodeWithTag("0, 0").performClick()
+        
         composeTestRule.onNodeWithTag("0, 0").performClick()
+        
 
         // Ensure X is displayed board[0,0] and it's O's turn
         composeTestRule.onNodeWithTag("0, 0").assertTextEquals("X")
@@ -80,6 +83,7 @@ class TicTacToeScreenTest {
         composeTestRule.onNodeWithTag("0, 0").performClick()
         composeTestRule.onNodeWithTag("0, 1").performClick()
         composeTestRule.onNodeWithText("Reset Game").performClick()
+        
 
         composeTestRule.onNodeWithTag("0, 0").assertTextEquals("-")
         composeTestRule.onNodeWithTag("0, 1").assertTextEquals("-")
@@ -98,7 +102,9 @@ class TicTacToeScreenTest {
         composeTestRule.onNodeWithTag("2, 2").performClick()
         composeTestRule.onNodeWithTag("2, 0").performClick()
 
-        composeTestRule.onNodeWithText("It's a draw !").assertExists()
+
+
+        composeTestRule.onNodeWithText("It's a draw!").assertExists()
     }
 
     @Test
@@ -109,7 +115,47 @@ class TicTacToeScreenTest {
         composeTestRule.onNodeWithTag("1, 1").performClick()
         composeTestRule.onNodeWithTag("2, 0").performClick()
 
-        composeTestRule.onNodeWithText("Player X wins !").assertExists()
+        composeTestRule.onNodeWithText("Player X wins!").assertExists()
+    }
+
+    @Test
+    fun when_winnerByRowIsDetected_then_winnerShouldBeDisplayed() {
+
+        composeTestRule.onNodeWithTag("0, 0").performClick()
+        composeTestRule.onNodeWithTag("1, 0").performClick()
+        composeTestRule.onNodeWithTag("0, 1").performClick()
+        composeTestRule.onNodeWithTag("1, 1").performClick()
+        composeTestRule.onNodeWithTag("0, 2").performClick()
+        
+
+        composeTestRule.onNodeWithText("Player X wins!").assertExists()
+    }
+
+    @Test
+    fun when_winnerByDiagonalIsDetected_then_winnerShouldBeDisplayed() {
+
+        composeTestRule.onNodeWithTag("0, 0").performClick()
+        composeTestRule.onNodeWithTag("0, 1").performClick()
+        composeTestRule.onNodeWithTag("1, 0").performClick()
+        composeTestRule.onNodeWithTag("2, 0").performClick()
+        composeTestRule.onNodeWithTag("1, 1").performClick()
+        composeTestRule.onNodeWithTag("2, 1").performClick()
+        composeTestRule.onNodeWithTag("0, 2").performClick()
+        composeTestRule.onNodeWithTag("1, 2").performClick()
+        composeTestRule.onNodeWithTag("2, 2").performClick()
+
+        composeTestRule.onNodeWithText("Player X wins!").assertExists()
+    }
+
+    @Test
+    fun when_winnerBySecondDiagonalIsDetected_then_winnerShouldBeDisplayed() {
+        composeTestRule.onNodeWithTag("2, 0").performClick()
+        composeTestRule.onNodeWithTag("0, 1").performClick()
+        composeTestRule.onNodeWithTag("1, 1").performClick()
+        composeTestRule.onNodeWithTag("2, 1").performClick()
+        composeTestRule.onNodeWithTag("0, 2").performClick()
+
+        composeTestRule.onNodeWithText("Player X wins!").assertExists()
     }
 
 
