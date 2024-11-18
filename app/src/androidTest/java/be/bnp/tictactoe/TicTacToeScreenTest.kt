@@ -86,5 +86,20 @@ class TicTacToeScreenTest {
 
     }
 
+    @Test
+    fun when_boardIsFilledAndNoWinnerDetected_then_shouldBeDraw() {
+        composeTestRule.onNodeWithTag("0, 0").performClick()
+        composeTestRule.onNodeWithTag("0, 1").performClick()
+        composeTestRule.onNodeWithTag("0, 2").performClick()
+        composeTestRule.onNodeWithTag("1, 1").performClick()
+        composeTestRule.onNodeWithTag("2, 1").performClick()
+        composeTestRule.onNodeWithTag("1, 0").performClick()
+        composeTestRule.onNodeWithTag("1, 2").performClick()
+        composeTestRule.onNodeWithTag("2, 2").performClick()
+        composeTestRule.onNodeWithTag("2, 0").performClick()
+
+        composeTestRule.onNodeWithText("It's a draw").assertExists()
+
+    }
 
 }
