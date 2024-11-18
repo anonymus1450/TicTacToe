@@ -47,16 +47,32 @@ class TicTacToeScreenTest {
 
     @Test
     fun when_XPlays_then_XIsMarked_And_OShouldPlays() {
+        // click on board[0,0]
         composeTestRule.onNodeWithTag("0, 0").performClick()
 
+        // Ensure O is displayed board[0,0] and it's O's turn
         composeTestRule.onNodeWithTag("0, 0").assertTextEquals("X")
         composeTestRule.onNodeWithText("Player O's turn").assertExists()
 
+        // click on board[0,1]
         composeTestRule.onNodeWithTag("0, 1").performClick()
 
+        // Ensure O is displayed board[0,1] and it's X's turn
         composeTestRule.onNodeWithTag("0, 1").assertTextEquals("O")
         composeTestRule.onNodeWithText("Player X's turn").assertExists()
     }
+
+    @Test
+    fun when_boardButtonIsClicked_then_boardButtonShouldBePlayable() {
+        // X clicks on board[0,0] then O clicks on board[0,0]
+        composeTestRule.onNodeWithTag("0, 0").performClick()
+        composeTestRule.onNodeWithTag("0, 0").performClick()
+
+        // Ensure X is displayed board[0,0] and it's O's turn
+        composeTestRule.onNodeWithTag("0, 0").assertTextEquals("X")
+        composeTestRule.onNodeWithText("Player O's turn").assertExists()
+    }
+
 
 
 
