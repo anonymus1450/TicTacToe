@@ -4,13 +4,16 @@ import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onNodeWithText
+import androidx.test.ext.junit.runners.AndroidJUnit4
 import be.bnp.tictactoe.ui.TicTacToeScreen
 import be.bnp.tictactoe.viewmodel.TicTacToeViewModel
 import org.junit.Rule
 import org.junit.Test
+import org.junit.runner.RunWith
 
+
+@RunWith(AndroidJUnit4::class)
 class TicTacToeScreenTest {
-
 
     @get:Rule
     val composeTestRule = createComposeRule()
@@ -18,7 +21,9 @@ class TicTacToeScreenTest {
     @Test
     fun when_gameStarts_then_XPlaysFirst() {
         composeTestRule.setContent {
-            TicTacToeScreen(viewModel = TicTacToeViewModel())
+            TicTacToeScreen(
+                viewModel = TicTacToeViewModel()
+            )
         }
 
         // Ensure it's X's turn

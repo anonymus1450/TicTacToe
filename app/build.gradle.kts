@@ -37,24 +37,35 @@ android {
     buildFeatures {
         compose = true
     }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.3"
+    }
 }
 
 dependencies {
-
+    // Core libraries
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
-    implementation(platform(libs.androidx.compose.bom))
+
+    // Compose libraries
+    implementation(platform(libs.androidx.compose.bom)) // BOM for Compose versions.
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-    implementation(libs.androidx.ui.test.junit4.android)
+
+    // Unit testing libraries
     testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.ui.test.junit4)
-    debugImplementation(libs.androidx.ui.tooling)
-    debugImplementation(libs.androidx.ui.test.manifest)
+
+    // Android test libraries
+    androidTestImplementation(libs.androidx.junit) // JUnit for Android testing.
+    androidTestImplementation(libs.androidx.espresso.core) // Espresso for UI testing.
+    androidTestImplementation(libs.androidx.ui.test.junit4) // Jetpack Compose UI tests.
+
+    // Debugging tools
+    debugImplementation(libs.androidx.ui.tooling) // Tools for Compose UI previews.
+    debugImplementation(libs.androidx.ui.test.manifest) // Test manifest debugging tools.
 }
+

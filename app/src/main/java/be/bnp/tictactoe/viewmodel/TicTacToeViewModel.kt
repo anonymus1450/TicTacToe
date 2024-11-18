@@ -1,25 +1,27 @@
 package be.bnp.tictactoe.viewmodel
 
 
+import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
+import androidx.lifecycle.ViewModel
 import be.bnp.tictactoe.model.Player
 import be.bnp.tictactoe.model.TicTacToeState
 
-class TicTacToeViewModel {
-
+class TicTacToeViewModel: ViewModel() {
     private val gameState = mutableStateOf(TicTacToeState())
 
+    val state: State<TicTacToeState> = gameState
+
     val board: Array<Array<Player>>
-        get() = gameState.value.board
+        get() = state.value.board
 
     val currentPlayer: Player
-        get() =
-            if (gameState.value.moveCount == 9) Player.DRAW
-            else if (gameState.value.moveCount % 2 == 0) Player.X
-            else Player.O
+        get() = if (state.value.moveCount == 9) Player.DRAW
+                else if (state.value.moveCount % 2 == 0) Player.X
+                else Player.O
 
     val winner: Player
-        get() = gameState.value.winner
+        get() = state.value.winner
 
     fun onBoardClick(row: Int, col: Int) {
         if(board[row][col] == Player.EMPTY) {
