@@ -5,6 +5,7 @@ import be.bnp.tictactoe.viewmodel.TicTacToeViewModel
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
+import kotlin.random.Random
 
 class TicTacToeViewModelTest{
 
@@ -70,22 +71,28 @@ class TicTacToeViewModelTest{
 
     @Test
     fun when_winnerByRowIsDetected_then_winnerShouldBeDisplayed() {
-        viewModel.onBoardClick(0, 0)  // X
-        viewModel.onBoardClick(1, 0)  // O
-        viewModel.onBoardClick(0, 1)  // X
-        viewModel.onBoardClick(1, 1)  // O
-        viewModel.onBoardClick(0, 2)  // X wins
+        val rowX: Int = Random.nextInt(0, 3)
+        val rowO: Int = (rowX + 1) % 3
+
+        viewModel.onBoardClick(rowX, 0)  // X
+        viewModel.onBoardClick(rowO, 0)  // O
+        viewModel.onBoardClick(rowX, 1)  // X
+        viewModel.onBoardClick(rowO, 1)  // O
+        viewModel.onBoardClick(rowX, 2)  // X wins
 
         assertEquals(Player.X, viewModel.winner)
     }
 
     @Test
     fun when_winnerByColumnIsDetected_then_winnerShouldBeDisplayed() {
-        viewModel.onBoardClick(0, 1)  // X
-        viewModel.onBoardClick(0, 0)  // O
-        viewModel.onBoardClick(1, 1)  // X
-        viewModel.onBoardClick(0, 2)  // O
-        viewModel.onBoardClick(2, 1)  // X wins
+        val columnX: Int = Random.nextInt(0, 3)
+        val columnO: Int = (columnX + 1) % 3
+
+        viewModel.onBoardClick(0, columnX)  // X
+        viewModel.onBoardClick(0, columnO)  // O
+        viewModel.onBoardClick(1, columnX)  // X
+        viewModel.onBoardClick(1, columnO)  // O
+        viewModel.onBoardClick(2, columnX)  // X wins
 
         assertEquals(Player.X, viewModel.winner)
     }
@@ -113,5 +120,4 @@ class TicTacToeViewModelTest{
 
         assertEquals(Player.O, viewModel.winner)
     }
-
 }
