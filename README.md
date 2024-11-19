@@ -5,7 +5,7 @@
 
 ### Prerequisites
 1. **Android Studio Version:**    
-   Ensure you have a recent version of Android studio (ie: **Android Studio Ladybug | 2024.2.1 Patch 2** or later installed).
+   Ensure you have a recent version of Android studio (ie: mine is **Android Studio Ladybug | 2024.2.1 Patch 2**).
 2. **Java Version:**    
    The project uses **Java 11**. 
 3. **Kotlin Version: 2.0.0**    
@@ -13,8 +13,10 @@
 ---  
 
 ### Dependencies
+
 The project uses **Gradle Version Catalog** for managing dependencies via the `libs.versions.toml` file.    
 To view dependency versions, open `gradle/libs.versions.toml`.
+
 ---  
 
 - **Emulator Configuration:** Medium Phone, API Level 35.
